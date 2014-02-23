@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect();
+		
+		socket.on('connect',function(){
+			socket.emit('get teams');
+		});
+		socket.on('percentage',function(number){
+			var percentage = document.getElementById("percentage");
+			if(number !== "No shots taken" && number !== "0%"){
+				percentage.innerHTML=(number * 100) + "%";
+			}
+				percentage.innerHTML=number;
+		});
+		socket.on('teams',function(teams){
+			var string = "<option></option>";
+			teams.forEach(function(team){
+				string += "<option>" + team + "</option>";
+			});
+			document.getElementById("team").innerHTML = string;
+		});
+		socket.on('players',function(players){
+			var string = "<option></option>";
+			players.forEach(function(player){
+				string += "<option>" + player + "</option>";
+			});
+			document.getElementById("shooterName").innerHTML = string;
+		});
+		socket.on('shotTypes',function(shotTypes){
+			var string = "<option></option>";
+			shotTypes.forEach(function(shot){
+				string += "<option>" + shot + "</option>";
+			});
+			document.getElementById("shotType").innerHTML = string;
+		});
+		function sendChange() {
+			var team = document.getElementById("team")
+			var shooterName = document.getElementById("shooterName");
+			var shotType = document.getElementById("shotType");
+			var eType = document.getElementById("eType");
+			var xCoord = document.getElementById("xCoord");
+			var yCoord = document.getElementById("yCoord");
+			
+    		var day = document.getElementById("day");
+    		var month = document.getElementById("month");
+    		var year = document.getElementById("year");
+
+	    	var params = [ team.value,shooterName.value,eType.value,shotType.value,xCoord.value,yCoord.value,day.options[day.selectedIndex].text,month.options[month.selectedIndex].text,year.options[year.selectedIndex].text];
+			
+	    	socket.emit('change',params);	
+		}
+		function retrievePlayers(){
+			var team = document.getElementById("team");
+			socket.emit('retrieve players', team.options[team.selectedIndex].text);
+		}
+		function retrieveShotTypes(){
+			var shooter = document.getElementById("shooterName");
+			socket.emit('retrieve shotTypes', shooter.options[shooter.selectedIndex].text);
+		}
+
+	</script>
+</head>
+<body>
+	<p id="content"></p>
+	<p>Team: </p>
+		<select id='team' onchange="retrievePlayers()"></select>
+	<p>Player:</p>
+		<select id='shooterName' onchange="retrieveShotTypes()">
+		</select>
+	<p>Shot vs Free Throw</p>
+		<select id='eType'>
+			<option>shot</option>
+			<option>free throw</option>
+		</select>
+	<p>Shot Type</p>
+		<select id='shotType'>
+		</select>
+	<p>Date</p>
+		Day: <select id='day'>
+			<script>
+				for (var i=1;i<=31;i++){
+					document.write('<option>' + i + '</option>');
+				}
+			</script>
+			</select>
+		Month: <select id='month'>
+			<script>
+				for (var i=1;i<=12;i++){
+					document.write('<option>' + i + '</option>');
+				}
+			</script>
+			</select>
+		Year: <select id='year'>
+			<script>
+				for (var i=2006;i<=2010;i++){
+					document.write('<option>' + i + '</option>');
+				}
+			</script>
+			</select>
+	<p>Position ---NOT FUNCTIONAL</p>
+		<input type="range" id="xCoord" min="1" max="50" step="1">
+		<input type="range" id="yCoord" min="1" max="50" step="1">
+	<p>Percentage Chance: <div id="percentage"></div></p>
+	<button onclick="sendChange()">Calculate Percentage</button>	
+</body>
+</html>
