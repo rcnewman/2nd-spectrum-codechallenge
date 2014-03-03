@@ -8,7 +8,7 @@ var loader = require('./loader.js').loader;
 //Load Files
 loader();
 
-var port = 8000;
+var port = process.ENV.PORT;
 var server = http.createServer(function (req, res) {
 	fs.readFile('index.html',function(err,page){
 		res.writeHead(200,{	'Content-Type': 'text/html; charset=utf-8'});
@@ -16,8 +16,8 @@ var server = http.createServer(function (req, res) {
 		res.end();
 	});
 });
-server.listen(8000,function(){
-	console.log('Server up on port 8000');
+server.listen(port,function(){
+	console.log('Server up on port ' + port);
 });
 io = sio.listen(server);
 
