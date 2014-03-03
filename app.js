@@ -8,7 +8,7 @@ var loader = require('./loader.js').loader;
 //Load Files
 loader();
 
-var port = process.ENV.PORT;
+var port = process.env.PORT;
 var server = http.createServer(function (req, res) {
 	fs.readFile('index.html',function(err,page){
 		res.writeHead(200,{	'Content-Type': 'text/html; charset=utf-8'});
