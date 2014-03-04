@@ -6,7 +6,7 @@ var filter = require('./filter.js');
 
 var loader = function(){
 //var dirs = ['./data/quick'];
-var dirs = ['./data/2006-2007.regular_season']//,'./data/2007-2008.regular_season','./data/2008-2009.regular_season','./data/2009-2010.regular_season'];
+var dirs = ['./data/2006-2007.regular_season'];//,'./data/2007-2008.regular_season','./data/2008-2009.regular_season','./data/2009-2010.regular_season'];
 console.log('Populating memory with data from csv... this may take a while');
 var start = new Date().getTime();
 
