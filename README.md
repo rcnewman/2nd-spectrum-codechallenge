@@ -10,6 +10,7 @@ Written in NodeJS.
 To start program, enter "node app.js" into commandline of root directory. Note: it may take some time to load all the csv files into memory.
 
 //In a browser, navigate to http://localhost with the port that is outputted to console
+
 Go to http://ross-2nd-codechallenge.herokuapp.com/
 Only a subset of the data is loaded due to heroku memory constraints
 
