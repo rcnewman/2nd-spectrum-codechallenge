@@ -9,10 +9,22 @@ Written in NodeJS.
 
 To start program, enter "node app.js" into commandline of root directory. Note: it may take some time to load all the csv files into memory.
 
-In a browser, navigate to http://localhost with the port that is outputted to console
+//In a browser, navigate to http://localhost with the port that is outputted to console
+Go to http://ross-2nd-codechallenge.herokuapp.com/
+Only a subset of the data is loaded due to heroku memory constraints
 
 Select team, player, and other options, when ready press the "Calculate Percentage" button to show the likelihood 
 that a given shot will go in.
+
+An example query:
+Select LAL under team.
+Select Kobe Bryant under players.
+Select Shot under Shot vs. Free Throw.
+Select Layup under Shot Type
+Select date, day 1, month 12, year 2006, Press Calculate Percentage
+Change the Date to day 1, month 1, year 2007, Press Calculate Percentage, note the difference
+Change the Date to day 1, month 2, year 2007, Press Calculate Percentage, note the difference
+
 
 X and Y Coordinates do not affect query, more details on why in the Improvements section.
 
