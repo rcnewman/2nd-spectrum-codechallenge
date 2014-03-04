@@ -22,13 +22,21 @@ How to use
 Select team, player, and other options, when ready press the "Calculate Percentage" button to show the likelihood 
 that a given shot will go in.
 
+
 An example query:
+
 Select LAL under team.
+
 Select Kobe Bryant under players.
+
 Select Shot under Shot vs. Free Throw.
+
 Select Layup under Shot Type
+
 Select date, day 1, month 12, year 2006, Press Calculate Percentage
+
 Change the Date to day 1, month 1, year 2007, Press Calculate Percentage, note the difference
+
 Change the Date to day 1, month 2, year 2007, Press Calculate Percentage, note the difference
 
 How it works
