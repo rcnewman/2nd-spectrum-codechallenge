@@ -9,7 +9,7 @@ Written in NodeJS.
 
 To start program, enter "node app.js" into commandline of root directory. Note: it may take some time to load all the csv files into memory.
 
-In a browser, navigate to http://localhost:8000
+In a browser, navigate to http://localhost with the port that is outputted to console
 
 Select team, player, and other options, when ready press the "Calculate Percentage" button to show the likelihood 
 that a given shot will go in.
