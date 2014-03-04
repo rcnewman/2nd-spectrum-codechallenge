@@ -6,7 +6,9 @@ beginning of the 2006 season through some given point in time. Provide an evalua
 changes as you receive more data as time goes forward.
 
 Written in NodeJS.
-==========================
+
+
+---
 To start program, enter "node app.js" into commandline of root directory. Note: it may take some time to load all the csv files into memory. In a browser, navigate to http://localhost with the port that is outputted to console
 
 OR
@@ -14,7 +16,9 @@ OR
 
 Go to http://ross-2nd-codechallenge.herokuapp.com/
 Only a subset of the data is loaded due to heroku memory constraints
-==========================
+
+
+---
 Select team, player, and other options, when ready press the "Calculate Percentage" button to show the likelihood 
 that a given shot will go in.
 
@@ -27,7 +31,7 @@ Select date, day 1, month 12, year 2006, Press Calculate Percentage
 Change the Date to day 1, month 1, year 2007, Press Calculate Percentage, note the difference
 Change the Date to day 1, month 2, year 2007, Press Calculate Percentage, note the difference
 
-==========================
+---
 X and Y Coordinates do not affect query, more details on why in the Improvements section.
 
 The program first loads all CSV data into an array of Shot Objects. A shot object contains information like shooter Name, team, date of game, period, whether it is a free throw or a shot, shot type, and more. Currently some of the data loaded is unused.
